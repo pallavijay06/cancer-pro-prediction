@@ -2,3 +2,4 @@
 data/processed/dummy_dataset.csv
 .DS_Store
 __pycache__/
+results/
