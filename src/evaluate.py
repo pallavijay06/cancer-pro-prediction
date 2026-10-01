@@ -29,14 +29,18 @@ def nested_cv(estimator, param_grid, X, y, n_splits=5, n_repeats=3,
     oof_sum, oof_cnt = np.zeros(len(y)), np.zeros(len(y))
 
     for i, (tr, te) in enumerate(outer.split(X, y)):
-        inner = StratifiedKFold(inner_splits, shuffle=True, random_state=seed + i)
-        search = GridSearchCV(clone(estimator), param_grid, scoring="roc_auc",
-                              cv=inner, n_jobs=n_jobs, refit=True)
-        search.fit(X.iloc[tr], y[tr])
-        p = search.predict_proba(X.iloc[te])[:, 1]
+        if param_grid:   # tune on the training part of this outer fold
+            inner = StratifiedKFold(inner_splits, shuffle=True, random_state=seed + i)
+            model = GridSearchCV(clone(estimator), param_grid, scoring="roc_auc",
+                                 cv=inner, n_jobs=n_jobs, refit=True)
+            model.fit(X.iloc[tr], y[tr])
+            best_params.append(model.best_params_)
+        else:            # nothing to tune (e.g. ensemble tunes its own members)
+            model = clone(estimator).fit(X.iloc[tr], y[tr])
+            best_params.append({})
+        p = model.predict_proba(X.iloc[te])[:, 1]
         fold_auc.append(roc_auc_score(y[te], p))
         fold_ap.append(average_precision_score(y[te], p))
-        best_params.append(search.best_params_)
         oof_sum[te] += p
         oof_cnt[te] += 1
 
