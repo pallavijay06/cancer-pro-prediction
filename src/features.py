@@ -458,32 +458,39 @@ def get_preprocessor_M2():
 # GENERIC PREPROCESSOR ACCESS
 # =========================================================
 
-def get_preprocessor(matrix="M1"):
+def get_preprocessor(matrix="M1", variant=None):
     """
     Return the requested preprocessing pipeline.
 
-    matrix:
+    Parameters
+    ----------
+    matrix : str
         "M1" -> KNN imputation
-        "M2" -> median + missing indicators
+        "M2" -> median imputation + missing indicators
+
+    variant : str, optional
+        Alias for matrix. This is supported for compatibility
+        with the Experiment 1 runner.
+
+    If both matrix and variant are supplied, variant takes priority.
     """
+
+    if variant is not None:
+        matrix = variant
 
     matrix = matrix.upper()
 
     if matrix == "M1":
-
         return get_preprocessor_M1()
 
     elif matrix == "M2":
-
         return get_preprocessor_M2()
 
     else:
-
         raise ValueError(
             "Unknown preprocessing matrix. "
             "Use 'M1' or 'M2'."
         )
-
 
 # =========================================================
 # SELF-TEST
