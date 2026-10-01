@@ -1,0 +1,26 @@
+{
+    "demographics": [
+        "Age",
+        "Educational_level",
+        "Occupational_status",
+        "Children",
+        "Marital_status"
+    ],
+    "disease": [
+        "TNM_stage",
+        "HER2",
+        "ECOG"
+    ],
+    "treatment": [
+        "Surgery",
+        "Axillary_lymphadenectomy",
+        "Chemotherapy_regimen"
+    ],
+    "psychological": [
+        "Perceived_risk_recurrence"
+    ],
+    "baseline_qol": [
+        "EORTC_baseline",
+        "PH_baseline"
+    ]
+}

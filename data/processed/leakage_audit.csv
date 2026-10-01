@@ -1,0 +1,16 @@
+feature,available_before_or_at_treatment_start,reason
+Age,REVIEW,Demographic characteristic.
+Educational_level,REVIEW,Baseline demographic characteristic.
+Occupational_status,REVIEW,Baseline demographic characteristic.
+Children,REVIEW,Baseline demographic/family characteristic.
+Marital_status,REVIEW,Baseline demographic characteristic.
+TNM_stage,REVIEW,Disease staging information.
+HER2,REVIEW,Tumor biomarker information.
+ECOG,REVIEW,Clinical performance status.
+Surgery,REVIEW,Treatment-related variable; exact timing must be verified.
+Axillary_lymphadenectomy,REVIEW,Treatment/surgical variable; exact timing must be verified.
+Chemotherapy_regimen,REVIEW,Treatment assignment/regimen.
+Radiotherapy,REVIEW,Requires special review: radiotherapy may occur after chemotherapy and could therefore violate the prediction-time constraint.
+EORTC_baseline,REVIEW,Baseline patient-reported outcome.
+PH_baseline,REVIEW,Baseline QLQ-C30 physical functioning score.
+Perceived_risk_recurrence,REVIEW,Requires review to determine when the risk perception was recorded relative to treatment.
