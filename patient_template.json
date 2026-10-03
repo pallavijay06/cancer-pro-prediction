@@ -1,0 +1,16 @@
+{
+  "Age": 45,
+  "Educational_level": "Secondary or higher education",
+  "Occupational_status": "Employed",
+  "Children": 2,
+  "Marital_status": "Married/partnered",
+  "TNM_stage": "II",
+  "HER2": "Positive",
+  "ECOG": 1,
+  "Surgery": "BCS",
+  "Axillary_lymphadenectomy": null,
+  "Chemotherapy_regimen": null,
+  "Perceived_risk_recurrence": null,
+  "EORTC_baseline": 65,
+  "PH_baseline": null
+}
